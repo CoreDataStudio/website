@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataScience AI - Future Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#14b8a6',
+                        darkbg: '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-darkbg dark:text-slate-200 transition-colors duration-300 font-sans">
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-darkbg/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg"></div>
+                    <span class="font-bold text-xl tracking-tight">Data<span class="text-primary">Mind</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="hover:text-primary transition" data-i18n="nav_services">Services</a>
+                    <a href="#methodology" class="hover:text-primary transition" data-i18n="nav_method">Methodology</a>
+                    <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-500/30" data-i18n="nav_contact">Get in Touch</a>
+                    <button id="lang-toggle" class="font-semibold border border-slate-300 dark:border-slate-600 px-2 py-1 rounded text-xs">IT</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary animate-gradient" data-i18n="hero_title">
+                Turning Data into <br> Future Intelligence.
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-500 dark:text-slate-400" data-i18n="hero_subtitle">
+                We build advanced AI solutions and predictive models to propel your business into the next era of technology.
+            </p>
+            <div class="mt-10 flex justify-center gap-4">
+                <a href="#contact" class="px-8 py-3 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold hover:opacity-90 transition" data-i18n="btn_start">Start Project</a>
+                <a href="#services" class="px-8 py-3 rounded-full border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition" data-i18n="btn_learn">Learn More</a>
+            </div>
+        </div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30 dark:opacity-20 pointer-events-none">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+            <div class="absolute top-20 right-20 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+        </div>
+    </header>
+    <section id="services" class="py-20 bg-white dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4" data-i18n="serv_title">Our Expertise</h2>
+                <p class="text-slate-500 dark:text-slate-400" data-i18n="serv_sub">Comprehensive data solutions for complex challenges.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:shadow-xl transition border border-slate-100 dark:border-slate-700 group">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-2xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition" data-i18n="c1_title">Predictive Analytics</h3>
+                    <p class="text-slate-500 dark:text-slate-400" data-i18n="c1_desc">Forecast trends and behaviors using historical data to make informed strategic decisions.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:shadow-xl transition border border-slate-100 dark:border-slate-700 group">
+                    <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 rounded-lg flex items-center justify-center text-2xl mb-4">🤖</div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-secondary transition" data-i18n="c2_title">Machine Learning</h3>
+                    <p class="text-slate-500 dark:text-slate-400" data-i18n="c2_desc">Custom algorithms that learn from your data to automate processes and optimize efficiency.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:shadow-xl transition border border-slate-100 dark:border-slate-700 group">
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-2xl mb-4">🧠</div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-purple-500 transition" data-i18n="c3_title">Generative AI</h3>
+                    <p class="text-slate-500 dark:text-slate-400" data-i18n="c3_desc">Implement LLMs and custom GPT solutions to transform how you interact with information.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="py-8 border-t border-slate-200 dark:border-slate-800 text-center text-slate-500 text-sm">
+        <p>&copy; 2024 DataMind AI. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
