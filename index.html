@@ -1,93 +1,382 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataScience AI - Future Intelligence</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#2563eb',
-                        secondary: '#14b8a6',
-                        darkbg: '#0f172a',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Tua Aziendissima - AI & Innovazione</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=General+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-darkbg dark:text-slate-200 transition-colors duration-300 font-sans">
-    <nav class="fixed w-full z-50 bg-white/80 dark:bg-darkbg/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex-shrink-0 flex items-center gap-2">
-                    <div class="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg"></div>
-                    <span class="font-bold text-xl tracking-tight">Data<span class="text-primary">Mind</span></span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="hover:text-primary transition" data-i18n="nav_services">Services</a>
-                    <a href="#methodology" class="hover:text-primary transition" data-i18n="nav_method">Methodology</a>
-                    <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-500/30" data-i18n="nav_contact">Get in Touch</a>
-                    <button id="lang-toggle" class="font-semibold border border-slate-300 dark:border-slate-600 px-2 py-1 rounded text-xs">IT</button>
-                </div>
-            </div>
-        </div>
+<body id="top">
+  <!-- Barra di avanzamento scroll -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">La Tua Aziendissima</span>
+      </a>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#obiettivi" class="nav-link">Visione</a></li>
+          <li><a href="#servizi" class="nav-link">Servizi</a></li>
+          <li><a href="#risultati" class="nav-link">Metodo</a></li>
+          <li><a href="#prog" class="nav-link">Progetti</a></li>
+          <li><a href="#team" class="nav-link">Team</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contatti" class="btn btn-primary header-cta">Contattaci</a>
+
+      <!-- Burger mobile -->
+      <button class="hamburger" id="hamburger" aria-label="Apri menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- NAV MOBILE -->
+    <nav class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="#obiettivi" class="nav-link mobile-link">Visione</a></li>
+        <li><a href="#servizi" class="nav-link mobile-link">Servizi</a></li>
+        <li><a href="#risultati" class="nav-link mobile-link">Metodo</a></li>
+        <li><a href="#prog" class="nav-link mobile-link">Progetti</a></li>
+        <li><a href="#team" class="nav-link mobile-link">Team</a></li>
+        <li><a href="#contatti" class="mobile-link">Contattaci</a></li>
+      </ul>
     </nav>
-    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary animate-gradient" data-i18n="hero_title">
-                Turning Data into <br> Future Intelligence.
-            </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-500 dark:text-slate-400" data-i18n="hero_subtitle">
-                We build advanced AI solutions and predictive models to propel your business into the next era of technology.
-            </p>
-            <div class="mt-10 flex justify-center gap-4">
-                <a href="#contact" class="px-8 py-3 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold hover:opacity-90 transition" data-i18n="btn_start">Start Project</a>
-                <a href="#services" class="px-8 py-3 rounded-full border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition" data-i18n="btn_learn">Learn More</a>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="section section-full hero">
+      <div class="container hero-inner">
+        <div class="hero-text reveal">
+          <p class="eyebrow">(artificial intelligence)</p>
+          <h1>
+            Dalla <span class="accent">passione</span><br />
+            all'<span class="accent">impatto</span> misurabile
+          </h1>
+          <p class="hero-subtitle">
+            Progettiamo soluzioni di AI generativa e data strategy per trasformare
+            le tue idee in risultati concreti, in poche settimane.
+          </p>
+          <div class="hero-actions">
+            <a href="#servizi" class="btn btn-primary">Scopri i servizi</a>
+            <a href="#contatti" class="btn btn-ghost">Parlaci del tuo progetto</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">+25</span>
+              <span class="stat-label">progetti AI consegnati</span>
             </div>
-        </div>
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30 dark:opacity-20 pointer-events-none">
-            <div class="absolute top-20 left-20 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div class="absolute top-20 right-20 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-        </div>
-    </header>
-    <section id="services" class="py-20 bg-white dark:bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4" data-i18n="serv_title">Our Expertise</h2>
-                <p class="text-slate-500 dark:text-slate-400" data-i18n="serv_sub">Comprehensive data solutions for complex challenges.</p>
+            <div class="stat">
+              <span class="stat-number">+5</span>
+              <span class="stat-label">settori coperti</span>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:shadow-xl transition border border-slate-100 dark:border-slate-700 group">
-                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-2xl mb-4">📊</div>
-                    <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition" data-i18n="c1_title">Predictive Analytics</h3>
-                    <p class="text-slate-500 dark:text-slate-400" data-i18n="c1_desc">Forecast trends and behaviors using historical data to make informed strategic decisions.</p>
-                </div>
-                <div class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:shadow-xl transition border border-slate-100 dark:border-slate-700 group">
-                    <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 rounded-lg flex items-center justify-center text-2xl mb-4">🤖</div>
-                    <h3 class="text-xl font-bold mb-2 group-hover:text-secondary transition" data-i18n="c2_title">Machine Learning</h3>
-                    <p class="text-slate-500 dark:text-slate-400" data-i18n="c2_desc">Custom algorithms that learn from your data to automate processes and optimize efficiency.</p>
-                </div>
-                <div class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-800 hover:shadow-xl transition border border-slate-100 dark:border-slate-700 group">
-                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-2xl mb-4">🧠</div>
-                    <h3 class="text-xl font-bold mb-2 group-hover:text-purple-500 transition" data-i18n="c3_title">Generative AI</h3>
-                    <p class="text-slate-500 dark:text-slate-400" data-i18n="c3_desc">Implement LLMs and custom GPT solutions to transform how you interact with information.</p>
-                </div>
+            <div class="stat">
+              <span class="stat-number">3x</span>
+              <span class="stat-label">go-live più rapido</span>
             </div>
+          </div>
         </div>
+
+        <div class="hero-visual reveal">
+          <div class="hero-card">
+            <p class="hero-pill">AI Generativa • Strategia • Prototipi</p>
+            <h2>Studio di AI per aziende che vogliono correre, non inseguire.</h2>
+            <ul class="hero-list">
+              <li>Prototipi funzionanti in poche settimane</li>
+              <li>Modelli personalizzati sui tuoi dati</li>
+              <li>Supporto su adozione e governance</li>
+            </ul>
+          </div>
+          <div class="hero-orbit"></div>
+        </div>
+      </div>
+
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-hint-line"></div>
+      </div>
     </section>
-    <footer class="py-8 border-t border-slate-200 dark:border-slate-800 text-center text-slate-500 text-sm">
-        <p>&copy; 2024 DataMind AI. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+
+    <!-- VISIONE -->
+    <section id="obiettivi" class="section section-light section-full">
+      <div class="container two-cols">
+        <div class="section-header reveal">
+          <p class="eyebrow">La nostra visione</p>
+          <h2>Il partner di riferimento per portare l'AI in azienda, in modo concreto.</h2>
+        </div>
+        <div class="section-content reveal">
+          <p>
+            L’AI ha senso solo se migliora davvero il lavoro delle persone. Per questo partiamo
+            dai processi reali: cosa rallenta il tuo team, cosa chiedono i tuoi clienti,
+            dove stai perdendo opportunità.
+          </p>
+          <p>
+            Uniamo prodotto, design e ingegneria per creare esperienze semplici da usare,
+            veloci da adottare e misurabili nei risultati. Meno slide, più prototipi.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIZI -->
+    <section id="servizi" class="section section-full">
+      <div class="container">
+        <div class="section-header center reveal">
+          <p class="eyebrow">(artificial intelligence)</p>
+          <h2>Servizi di AI generativa, dall’idea alla produzione.</h2>
+          <p class="section-subtitle">
+            Scegli dove iniziare: una singola use-case o una roadmap completa.
+          </p>
+        </div>
+
+        <div class="grid-3 services-grid reveal">
+          <article class="card service-card">
+            <h3>AI Generativa su misura</h3>
+            <p>
+              Assistenti, chatbot, agenti e strumenti creativi che parlano
+              con il tuo tono di voce e usano i tuoi dati.
+            </p>
+            <ul>
+              <li>Assistenti per clienti e team interni</li>
+              <li>Integrazione con strumenti esistenti</li>
+              <li>Guardrail, sicurezza e logging</li>
+            </ul>
+          </article>
+
+          <article class="card service-card">
+            <h3>Data &amp; AI Strategy</h3>
+            <p>
+              Definiamo dove l’AI genera valore nel tuo business e come scalare i risultati
+              nel tempo.
+            </p>
+            <ul>
+              <li>Assessment opportunità e rischi</li>
+              <li>Prioritizzazione use-case</li>
+              <li>Roadmap e KPI di impatto</li>
+            </ul>
+          </article>
+
+          <article class="card service-card">
+            <h3>Formazione &amp; Co-design</h3>
+            <p>
+              Sessioni pratiche per allineare business, tech e operations
+              e disegnare insieme le soluzioni.
+            </p>
+            <ul>
+              <li>Workshop per leadership e team</li>
+              <li>Design sprint su casi reali</li>
+              <li>Playbook operativi pronti all’uso</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METODO -->
+    <section id="risultati" class="section section-dark section-full">
+      <div class="container">
+        <div class="section-header center reveal">
+          <p class="eyebrow eyebrow-light">Il nostro metodo</p>
+          <h2>Un percorso chiaro, con risultati visibili ad ogni step.</h2>
+          <p class="section-subtitle">
+            Piccoli rilasci frequenti, feedback continui, niente progetti monolitici.
+          </p>
+        </div>
+
+        <div class="steps reveal">
+          <div class="step">
+            <span class="step-number">01</span>
+            <h3>Scoperta</h3>
+            <p>
+              Analisi di processi, dati e attori coinvolti. Identifichiamo
+              cosa automatizzare o potenziare con l’AI.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">02</span>
+            <h3>Prototipo</h3>
+            <p>
+              Costruiamo un MVP mirato, da far provare agli utenti
+              in contesti reali, non solo in demo controllate.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">03</span>
+            <h3>Industrializzazione</h3>
+            <p>
+              Integriamo nel tuo stack, curando performance, sicurezza
+              e governance dei modelli.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">04</span>
+            <h3>Ottimizzazione</h3>
+            <p>
+              Monitoriamo utilizzo e risultati, e iteriamo per aumentare
+              l’impatto nel tempo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGETTI -->
+    <section id="prog" class="section section-full">
+      <div class="container">
+        <div class="section-header center reveal">
+          <p class="eyebrow">(case studies)</p>
+          <h2>Progetti recenti</h2>
+          <p class="section-subtitle">
+            Alcuni esempi di come trasformiamo l’AI in valore misurabile.
+          </p>
+        </div>
+
+        <div class="projects-wrapper reveal">
+          <button class="slider-btn" id="projectsPrev" aria-label="Progetto precedente">‹</button>
+
+          <div class="projects-viewport">
+            <div class="projects-track">
+              <article class="card project-card">
+                <p class="project-tag">Retail</p>
+                <h3>Assistente AI per e-commerce</h3>
+                <p>
+                  Chat di supporto clienti che comprende catalogo, stock e policy,
+                  riducendo del 40% i ticket ripetitivi.
+                </p>
+              </article>
+
+              <article class="card project-card">
+                <p class="project-tag">Media</p>
+                <h3>Generazione contenuti editoriali</h3>
+                <p>
+                  Sistema che aiuta la redazione con bozze, titoli e riassunti
+                  multicanale in pochi secondi.
+                </p>
+              </article>
+
+              <article class="card project-card">
+                <p class="project-tag">B2B SaaS</p>
+                <h3>Onboarding intelligente</h3>
+                <p>
+                  Assistente in-app che guida i nuovi utenti, analizza i comportamenti
+                  e suggerisce i prossimi step.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <button class="slider-btn" id="projectsNext" aria-label="Progetto successivo">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="section section-light section-full">
+      <div class="container">
+        <div class="section-header center reveal">
+          <p class="eyebrow">Team</p>
+          <h2>Un team ibrido tra tecnica, prodotto e design.</h2>
+        </div>
+
+        <div class="grid-3 team-grid reveal">
+          <article class="card team-card">
+            <div class="avatar-placeholder">A</div>
+            <h3>Nome Cognome</h3>
+            <p class="role">AI Lead</p>
+            <p>Architettura, modelli, integrazioni: guida tutta la parte tecnica.</p>
+          </article>
+
+          <article class="card team-card">
+            <div class="avatar-placeholder">B</div>
+            <h3>Nome Cognome</h3>
+            <p class="role">Product &amp; Strategy</p>
+            <p>Traduce obiettivi di business in roadmap concrete e misurabili.</p>
+          </article>
+
+          <article class="card team-card">
+            <div class="avatar-placeholder">C</div>
+            <h3>Nome Cognome</h3>
+            <p class="role">UX &amp; Delivery</p>
+            <p>Si assicura che le soluzioni siano chiare, usabili e adottate.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contatti" class="section section-dark section-full">
+      <div class="container contact-grid reveal">
+        <div class="contact-intro">
+          <p class="eyebrow eyebrow-light">Contatti diretti</p>
+          <h2>Parlaci del tuo progetto</h2>
+          <p>
+            Scrivici in poche righe chi sei, cosa fai e cosa vorresti costruire.
+            Ti risponderemo con spunti concreti e un possibile primo step.
+          </p>
+
+          <div class="contact-info">
+            <div>
+              <h3>Contatti</h3>
+              <p><strong>Indirizzo</strong>: via Esempio 123, 00100 Roma</p>
+              <p><strong>Email</strong>: <a href="mailto:info@tua-aziendissima.it">info@tua-aziendissima.it</a></p>
+            </div>
+            <div>
+              <h3>Orari</h3>
+              <p>Lunedì – Venerdì</p>
+              <p>09:00 – 18:00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <form id="contactForm" class="card contact-form">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required />
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="nome@azienda.it" required />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="azienda">Azienda</label>
+              <input type="text" id="azienda" name="azienda" placeholder="Nome azienda" />
+            </div>
+
+            <div class="form-field">
+              <label for="messaggio">Messaggio</label>
+              <textarea id="messaggio" name="messaggio" rows="4" placeholder="Raccontaci il tuo progetto"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary full-width">Invia richiesta</button>
+            <p class="form-success" id="formSuccess" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>La Tua Aziendissima &copy; <span id="year"></span> · Tutti i diritti riservati</p>
+      <p class="made-with">
+        Made with <span class="heart">♥</span> e un po’ di AI
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

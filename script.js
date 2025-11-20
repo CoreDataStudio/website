@@ -1,61 +1,176 @@
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.documentElement.classList.add('dark');
-}
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    if (event.matches) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
+document.addEventListener("DOMContentLoaded", () => {
+    /* ANNO FOOTER */
+    const yearEl = document.getElementById("year");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
     }
-});
-
-const translations = {
-    en: {
-        nav_services: "Services",
-        nav_method: "Methodology",
-        nav_contact: "Get in Touch",
-        hero_title: "Turning Data into <br> Future Intelligence.",
-        hero_subtitle: "We build advanced AI solutions and predictive models to propel your business into the next era of technology.",
-        btn_start: "Start Project",
-        btn_learn: "Learn More",
-        serv_title: "Our Expertise",
-        serv_sub: "Comprehensive data solutions for complex challenges.",
-        c1_title: "Predictive Analytics",
-        c1_desc: "Forecast trends and behaviors using historical data to make informed strategic decisions.",
-        c2_title: "Machine Learning",
-        c2_desc: "Custom algorithms that learn from your data to automate processes and optimize efficiency.",
-        c3_title: "Generative AI",
-        c3_desc: "Implement LLMs and custom GPT solutions to transform how you interact with information."
-    },
-    it: {
-        nav_services: "Servizi",
-        nav_method: "Metodologia",
-        nav_contact: "Contattaci",
-        hero_title: "Trasformiamo i Dati in <br> Intelligenza Futura.",
-        hero_subtitle: "Costruiamo soluzioni AI avanzate e modelli predittivi per spingere il tuo business nella prossima era tecnologica.",
-        btn_start: "Inizia Progetto",
-        btn_learn: "Scopri di più",
-        serv_title: "Le Nostre Competenze",
-        serv_sub: "Soluzioni dati complete per sfide complesse.",
-        c1_title: "Analisi Predittiva",
-        c1_desc: "Prevedi tendenze e comportamenti usando dati storici per prendere decisioni strategiche informate.",
-        c2_title: "Machine Learning",
-        c2_desc: "Algoritmi personalizzati che imparano dai tuoi dati per automatizzare processi e ottimizzare l'efficienza.",
-        c3_title: "AI Generativa",
-        c3_desc: "Implementazione di LLM e soluzioni GPT personalizzate per trasformare l'interazione con le informazioni."
+  
+    /* MENU MOBILE */
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobileNav");
+  
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener("click", () => {
+        const isOpen = hamburger.classList.toggle("is-open");
+        mobileNav.style.display = isOpen ? "block" : "none";
+      });
+  
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("is-open");
+          mobileNav.style.display = "none";
+        });
+      });
     }
-};
-
-let currentLang = 'en';
-const langToggleBtn = document.getElementById('lang-toggle');
-
-langToggleBtn.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'it' : 'en';
-    langToggleBtn.textContent = currentLang === 'en' ? 'IT' : 'EN';
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[currentLang][key]) {
-            element.innerHTML = translations[currentLang][key]; 
-        }
+  
+    /* SMOOTH SCROLL + OFFSET HEADER */
+    const header = document.querySelector(".site-header");
+    const scrollLinks = document.querySelectorAll('a[href^="#"]');
+  
+    scrollLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const targetId = link.getAttribute("href");
+        if (!targetId || targetId === "#") return;
+  
+        const targetEl = document.querySelector(targetId);
+        if (!targetEl) return;
+  
+        e.preventDefault();
+  
+        const headerHeight = header ? header.offsetHeight : 0;
+        const rect = targetEl.getBoundingClientRect();
+        const offsetTop = window.scrollY + rect.top - headerHeight - 12;
+  
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth",
+        });
+      });
     });
-});
+  
+    /* EVIDENZIAZIONE LINK NAV IN BASE ALLA SEZIONE */
+    const sections = document.querySelectorAll("main section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+  
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.id;
+  
+            navLinks.forEach((link) => {
+              const href = link.getAttribute("href") || "";
+              if (href === `#${id}`) {
+                link.classList.add("is-active");
+              } else {
+                link.classList.remove("is-active");
+              }
+            });
+          });
+        },
+        {
+          threshold: 0.45,
+        }
+      );
+  
+      sections.forEach((section) => observer.observe(section));
+    }
+  
+    /* SLIDER PROGETTI SEMPLICE */
+    const track = document.querySelector(".projects-track");
+    const cards = document.querySelectorAll(".project-card");
+    const prevBtn = document.getElementById("projectsPrev");
+    const nextBtn = document.getElementById("projectsNext");
+  
+    if (track && cards.length > 0 && prevBtn && nextBtn) {
+      let currentIndex = 0;
+  
+      const updateSlider = () => {
+        const gap = 16;
+        const cardWidth = cards[0].offsetWidth + gap;
+        const offset = -currentIndex * cardWidth;
+        track.style.transform = `translateX(${offset}px)`;
+      };
+  
+      prevBtn.addEventListener("click", () => {
+        currentIndex = Math.max(0, currentIndex - 1);
+        updateSlider();
+      });
+  
+      nextBtn.addEventListener("click", () => {
+        const maxIndex = cards.length - 1;
+        currentIndex = Math.min(maxIndex, currentIndex + 1);
+        updateSlider();
+      });
+  
+      window.addEventListener("resize", updateSlider);
+    }
+  
+    /* FORM CONTATTI (FAKE SUBMIT, SOLO FRONTEND) */
+    const contactForm = document.getElementById("contactForm");
+    const formSuccess = document.getElementById("formSuccess");
+  
+    if (contactForm) {
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        contactForm.reset();
+  
+        if (formSuccess) {
+          formSuccess.textContent =
+            "Grazie! La tua richiesta è stata inviata, ti ricontatteremo al più presto.";
+        }
+      });
+    }
+  
+    /* PROGRESS BAR SCROLL */
+    const progressBar = document.getElementById("scrollProgress");
+    if (progressBar) {
+      const updateProgress = () => {
+        const scrollTop = window.scrollY || window.pageYOffset;
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = `${progress}%`;
+      };
+  
+      updateProgress();
+      window.addEventListener("scroll", updateProgress);
+    }
+  
+    /* ANIMAZIONI REVEAL SU SCROLL */
+    const revealEls = document.querySelectorAll(".reveal");
+  
+    if ("IntersectionObserver" in window && revealEls.length > 0) {
+      const revealObserver = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.25,
+          rootMargin: "0px 0px -40px 0px",
+        }
+      );
+  
+      revealEls.forEach((el) => revealObserver.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add("is-visible"));
+    }
+  
+    /* PARALLAX LEGGERO HERO ORBIT */
+    const orbit = document.querySelector(".hero-orbit");
+    if (orbit) {
+      const parallax = () => {
+        const scrolled = window.scrollY || 0;
+        orbit.style.transform = `translateY(${scrolled * -0.04}px)`;
+      };
+      parallax();
+      window.addEventListener("scroll", parallax);
+    }
+  });
+  
