@@ -173,11 +173,15 @@
     width: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
-    /* This creates the Organic Shape without hiding the image via masking */
+    /* The shape */
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    box-shadow: 0 20px 50px -10px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 50px -10px rgba(0,0,0,0.2); /* Slightly stronger shadow for visibility */
     animation: morph 8s ease-in-out infinite;
-    background-color: var(--bg-subtle); /* Fallback color */
+    
+    /* FALLBACK: If image fails, you see this color */
+    background-color: var(--bg-subtle); 
+    min-height: 400px; /* Enforce height so it doesn't collapse */
+    display: block;
   }
   
   @keyframes morph {

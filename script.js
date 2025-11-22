@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- 1. IMAGE CONFIGURATION ---
     const images = {
         hero: {
-            light: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop', 
-            dark: 'https://images.unsplash.com/photo-1639322537228-ad7117a39499?q=80&w=2000&auto=format&fit=crop' 
+            // Using the specific iStock Neuron image for both modes as requested
+            light: 'https://media.istockphoto.com/id/1053434168/photo/neurons-cells-concept.jpg?s=612x612&w=0&k=20&c=WsA4glAgBMQ-ur_McjozmX9FUqsQdUcHUhVgX4a-vH0=', 
+            dark: 'https://media.istockphoto.com/id/1053434168/photo/neurons-cells-concept.jpg?s=612x612&w=0&k=20&c=WsA4glAgBMQ-ur_McjozmX9FUqsQdUcHUhVgX4a-vH0=' 
         },
         lecce: {
             light: 'https://images.unsplash.com/photo-1628178652458-7c858b29c0d5?q=80&w=2000&auto=format&fit=crop', 
@@ -11,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // --- 2. TRANSLATIONS ---
     const translations = {
         it: {
             nav_vision: "Visione", nav_services: "Soluzioni", nav_projects: "Lavori", btn_contact: "Contatti",
@@ -44,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // --- 3. LOGIC ---
     const els = {
         aiImg: document.getElementById('aiImage'),
         lecceImg: document.getElementById('lecceImage'),
@@ -56,13 +60,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateThemeImages() {
         const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
         els.aiImg.src = isDark ? images.hero.dark : images.hero.light;
         els.lecceImg.src = isDark ? images.lecce.dark : images.lecce.light;
     }
 
+    // Initialize
     updateThemeImages();
+    
+    // Listen for system theme changes
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateThemeImages);
 
+    // Lang Toggle
     els.langBtn.addEventListener('click', () => {
         currentLang = currentLang === 'it' ? 'en' : 'it';
         els.langBtn.textContent = currentLang === 'it' ? 'EN' : 'IT';
@@ -73,11 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Mobile Menu
     els.hamburger.addEventListener('click', () => {
         const isOpen = els.mobileMenu.style.display === 'block';
         els.mobileMenu.style.display = isOpen ? 'none' : 'block';
     });
 
+    // Animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('active');
