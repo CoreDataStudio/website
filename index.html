@@ -3,377 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La Tua Aziendissima - AI & Innovazione</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=General+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <title>Core Data Studio - Future Intelligence</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body id="top">
-  <!-- Barra di avanzamento scroll -->
-  <div class="scroll-progress" id="scrollProgress"></div>
+  
+  <!-- Subtle Background Grid -->
+  <div class="bg-grid"></div>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#top" class="logo">
-        <span class="logo-mark"></span>
-        <span class="logo-text">La Tua Aziendissima</span>
+  <!-- FLOATING MENU -->
+  <header class="floating-header">
+    <div class="nav-pill">
+      <a href="#top" class="logo-link" aria-label="Home">
+        <!-- UPDATED: Local Logo Image -->
+        <img src="img/logo.png" alt="Core Data Studio" class="logo-img">
       </a>
 
-      <nav class="main-nav">
-        <ul>
-          <li><a href="#obiettivi" class="nav-link">Visione</a></li>
-          <li><a href="#servizi" class="nav-link">Servizi</a></li>
-          <li><a href="#risultati" class="nav-link">Metodo</a></li>
-          <li><a href="#prog" class="nav-link">Progetti</a></li>
-          <li><a href="#team" class="nav-link">Team</a></li>
-        </ul>
+      <nav class="pill-nav">
+        <a href="#vision" data-i18n="nav_vision">Vision</a>
+        <a href="#servizi" data-i18n="nav_services">Solutions</a>
+        <a href="#progetti" data-i18n="nav_projects">Work</a>
       </nav>
 
-      <a href="#contatti" class="btn btn-primary header-cta">Contattaci</a>
-
-      <!-- Burger mobile -->
-      <button class="hamburger" id="hamburger" aria-label="Apri menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="pill-controls">
+        <button id="langToggle" class="lang-text">EN</button>
+        <a href="#contatti" class="btn-micro" data-i18n="btn_contact">Contact</a>
+      </div>
+      
+      <button class="hamburger" id="hamburger"><span></span></button>
     </div>
 
-    <!-- NAV MOBILE -->
-    <nav class="mobile-nav" id="mobileNav">
-      <ul>
-        <li><a href="#obiettivi" class="nav-link mobile-link">Visione</a></li>
-        <li><a href="#servizi" class="nav-link mobile-link">Servizi</a></li>
-        <li><a href="#risultati" class="nav-link mobile-link">Metodo</a></li>
-        <li><a href="#prog" class="nav-link mobile-link">Progetti</a></li>
-        <li><a href="#team" class="nav-link mobile-link">Team</a></li>
-        <li><a href="#contatti" class="mobile-link">Contattaci</a></li>
-      </ul>
-    </nav>
+    <!-- Mobile Dropdown -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#vision">Vision</a>
+      <a href="#servizi">Solutions</a>
+      <a href="#progetti">Work</a>
+      <a href="#contatti">Contact</a>
+    </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section id="hero" class="section section-full hero">
-      <div class="container hero-inner">
-        <div class="hero-text reveal">
-          <p class="eyebrow">(artificial intelligence)</p>
-          <h1>
-            Dalla <span class="accent">passione</span><br />
-            all'<span class="accent">impatto</span> misurabile
+    <!-- HERO SECTION -->
+    <section class="section hero-section">
+      <div class="container hero-grid">
+        
+        <!-- Text Content -->
+        <div class="hero-content reveal">
+          <div class="badge">
+            <span class="badge-dot"></span> Lecce, Italy
+          </div>
+          <h1 data-i18n="hero_title">
+            Core Data Studio.<br>
+            <span class="gradient-text">Invisible Intelligence.</span>
           </h1>
-          <p class="hero-subtitle">
-            Progettiamo soluzioni di AI generativa e data strategy per trasformare
-            le tue idee in risultati concreti, in poche settimane.
+          <p class="hero-sub" data-i18n="hero_subtitle">
+            We engineer the algorithms behind your next breakthrough. 
+            Pure machine learning, blended seamlessly into your business.
           </p>
-          <div class="hero-actions">
-            <a href="#servizi" class="btn btn-primary">Scopri i servizi</a>
-            <a href="#contatti" class="btn btn-ghost">Parlaci del tuo progetto</a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-number">+25</span>
-              <span class="stat-label">progetti AI consegnati</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">+5</span>
-              <span class="stat-label">settori coperti</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">3x</span>
-              <span class="stat-label">go-live più rapido</span>
-            </div>
+          <div class="hero-cta-group">
+            <a href="#servizi" class="btn btn-primary" data-i18n="btn_explore">Our Solutions</a>
           </div>
         </div>
 
+        <!-- HERO VISUAL (Organic Shape, No Masking) -->
         <div class="hero-visual reveal">
-          <div class="hero-card">
-            <p class="hero-pill">AI Generativa • Strategia • Prototipi</p>
-            <h2>Studio di AI per aziende che vogliono correre, non inseguire.</h2>
-            <ul class="hero-list">
-              <li>Prototipi funzionanti in poche settimane</li>
-              <li>Modelli personalizzati sui tuoi dati</li>
-              <li>Supporto su adozione e governance</li>
-            </ul>
+          <div class="blob-frame">
+             <!-- Image loaded directly. CSS handles the shape. -->
+             <img id="aiImage" 
+                  src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop" 
+                  alt=""
+                  class="blob-img">
           </div>
-          <div class="hero-orbit"></div>
-        </div>
-      </div>
-
-      <div class="scroll-hint">
-        <span>Scroll</span>
-        <div class="scroll-hint-line"></div>
-      </div>
-    </section>
-
-    <!-- VISIONE -->
-    <section id="obiettivi" class="section section-light section-full">
-      <div class="container two-cols">
-        <div class="section-header reveal">
-          <p class="eyebrow">La nostra visione</p>
-          <h2>Il partner di riferimento per portare l'AI in azienda, in modo concreto.</h2>
-        </div>
-        <div class="section-content reveal">
-          <p>
-            L’AI ha senso solo se migliora davvero il lavoro delle persone. Per questo partiamo
-            dai processi reali: cosa rallenta il tuo team, cosa chiedono i tuoi clienti,
-            dove stai perdendo opportunità.
-          </p>
-          <p>
-            Uniamo prodotto, design e ingegneria per creare esperienze semplici da usare,
-            veloci da adottare e misurabili nei risultati. Meno slide, più prototipi.
-          </p>
         </div>
       </div>
     </section>
 
-    <!-- SERVIZI -->
-    <section id="servizi" class="section section-full">
+    <!-- VISION / LECCE -->
+    <section id="vision" class="section">
+      <div class="container grid-2">
+        <div class="visual-box reveal">
+           <div class="image-wrapper">
+             <img id="lecceImage" 
+                  src="https://images.unsplash.com/photo-1628178652458-7c858b29c0d5?q=80&w=1000&auto=format&fit=crop" 
+                  alt="Lecce Architecture Details" 
+                  class="cover-img">
+             <div class="location-tag">
+               <i class="ph-fill ph-map-pin"></i> HQ: Lecce
+             </div>
+           </div>
+        </div>
+        
+        <div class="content-box reveal">
+          <h2 data-i18n="vision_title">Complexity is in our DNA.</h2>
+          <p data-i18n="vision_p1">
+            Born in <strong>Lecce</strong>, where Baroque architecture taught us that beauty lies in complex, interconnected details.
+          </p>
+          <p data-i18n="vision_p2">
+            We bring that same engineering craftsmanship to your data pipelines. We don't just run code; we architect sustainable intelligence.
+          </p>
+          
+          <div class="stats-minimal">
+            <div class="stat-item">
+              <strong>98%</strong>
+              <span>Accuracy</span>
+            </div>
+            <div class="stat-item">
+              <strong>Agile</strong>
+              <span>Method</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="servizi" class="section bg-subtle">
       <div class="container">
-        <div class="section-header center reveal">
-          <p class="eyebrow">(artificial intelligence)</p>
-          <h2>Servizi di AI generativa, dall’idea alla produzione.</h2>
-          <p class="section-subtitle">
-            Scegli dove iniziare: una singola use-case o una roadmap completa.
-          </p>
+        <div class="section-head reveal">
+          <h2 data-i18n="services_title">Capabilities</h2>
+          <p data-i18n="services_sub">End-to-end data engineering.</p>
         </div>
 
-        <div class="grid-3 services-grid reveal">
-          <article class="card service-card">
-            <h3>AI Generativa su misura</h3>
-            <p>
-              Assistenti, chatbot, agenti e strumenti creativi che parlano
-              con il tuo tono di voce e usano i tuoi dati.
-            </p>
-            <ul>
-              <li>Assistenti per clienti e team interni</li>
-              <li>Integrazione con strumenti esistenti</li>
-              <li>Guardrail, sicurezza e logging</li>
-            </ul>
-          </article>
+        <div class="services-grid">
+          <div class="srv-card reveal">
+            <i class="ph ph-chart-polar icon-big"></i>
+            <h3 data-i18n="srv_1_title">Predictive Analytics</h3>
+            <p data-i18n="srv_1_desc">Turn historical data into future strategy with advanced statistical modeling.</p>
+          </div>
 
-          <article class="card service-card">
-            <h3>Data &amp; AI Strategy</h3>
-            <p>
-              Definiamo dove l’AI genera valore nel tuo business e come scalare i risultati
-              nel tempo.
-            </p>
-            <ul>
-              <li>Assessment opportunità e rischi</li>
-              <li>Prioritizzazione use-case</li>
-              <li>Roadmap e KPI di impatto</li>
-            </ul>
-          </article>
+          <div class="srv-card reveal delay-1">
+            <i class="ph ph-scan icon-big"></i>
+            <h3 data-i18n="srv_2_title">Computer Vision</h3>
+            <p data-i18n="srv_2_desc">Automated eyes for quality control, security, and object detection.</p>
+          </div>
 
-          <article class="card service-card">
-            <h3>Formazione &amp; Co-design</h3>
-            <p>
-              Sessioni pratiche per allineare business, tech e operations
-              e disegnare insieme le soluzioni.
-            </p>
-            <ul>
-              <li>Workshop per leadership e team</li>
-              <li>Design sprint su casi reali</li>
-              <li>Playbook operativi pronti all’uso</li>
-            </ul>
-          </article>
+          <div class="srv-card reveal delay-2">
+            <i class="ph ph-cpu icon-big"></i>
+            <h3 data-i18n="srv_3_title">Custom AI Models</h3>
+            <p data-i18n="srv_3_desc">Private LLMs and algorithms trained exclusively on your corporate data.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- METODO -->
-    <section id="risultati" class="section section-dark section-full">
+    <!-- PROJECTS -->
+    <section id="progetti" class="section">
       <div class="container">
-        <div class="section-header center reveal">
-          <p class="eyebrow eyebrow-light">Il nostro metodo</p>
-          <h2>Un percorso chiaro, con risultati visibili ad ogni step.</h2>
-          <p class="section-subtitle">
-            Piccoli rilasci frequenti, feedback continui, niente progetti monolitici.
-          </p>
+        <div class="section-head reveal">
+          <h2 data-i18n="projects_title">Selected Work</h2>
         </div>
-
-        <div class="steps reveal">
-          <div class="step">
-            <span class="step-number">01</span>
-            <h3>Scoperta</h3>
-            <p>
-              Analisi di processi, dati e attori coinvolti. Identifichiamo
-              cosa automatizzare o potenziare con l’AI.
-            </p>
-          </div>
-          <div class="step">
-            <span class="step-number">02</span>
-            <h3>Prototipo</h3>
-            <p>
-              Costruiamo un MVP mirato, da far provare agli utenti
-              in contesti reali, non solo in demo controllate.
-            </p>
-          </div>
-          <div class="step">
-            <span class="step-number">03</span>
-            <h3>Industrializzazione</h3>
-            <p>
-              Integriamo nel tuo stack, curando performance, sicurezza
-              e governance dei modelli.
-            </p>
-          </div>
-          <div class="step">
-            <span class="step-number">04</span>
-            <h3>Ottimizzazione</h3>
-            <p>
-              Monitoriamo utilizzo e risultati, e iteriamo per aumentare
-              l’impatto nel tempo.
-            </p>
-          </div>
+        <div class="projects-list">
+            <a href="#" class="project-row reveal">
+                <span class="proj-num">01</span>
+                <span class="proj-cat">AgriTech</span>
+                <span class="proj-name">Olive Tree Health AI</span>
+                <span class="proj-arrow"><i class="ph ph-arrow-right"></i></span>
+            </a>
+            <a href="#" class="project-row reveal">
+                <span class="proj-num">02</span>
+                <span class="proj-cat">Fintech</span>
+                <span class="proj-name">Credit Risk Engine</span>
+                <span class="proj-arrow"><i class="ph ph-arrow-right"></i></span>
+            </a>
+            <a href="#" class="project-row reveal">
+                <span class="proj-num">03</span>
+                <span class="proj-cat">Retail</span>
+                <span class="proj-name">Demand Forecasting</span>
+                <span class="proj-arrow"><i class="ph ph-arrow-right"></i></span>
+            </a>
         </div>
       </div>
     </section>
 
-    <!-- PROGETTI -->
-    <section id="prog" class="section section-full">
-      <div class="container">
-        <div class="section-header center reveal">
-          <p class="eyebrow">(case studies)</p>
-          <h2>Progetti recenti</h2>
-          <p class="section-subtitle">
-            Alcuni esempi di come trasformiamo l’AI in valore misurabile.
-          </p>
-        </div>
+    <!-- CONTACT -->
+    <section id="contatti" class="section section-cta">
+      <div class="container cta-container reveal">
+        <h2 data-i18n="contact_title">Let's talk Data.</h2>
+        <p data-i18n="contact_desc">Based in Lecce, working globally.</p>
+        
+        <form class="minimal-form">
+          <input type="email" placeholder="email@company.com" required>
+          <button type="submit" class="btn btn-primary" data-i18n="form_btn">Connect</button>
+        </form>
 
-        <div class="projects-wrapper reveal">
-          <button class="slider-btn" id="projectsPrev" aria-label="Progetto precedente">‹</button>
-
-          <div class="projects-viewport">
-            <div class="projects-track">
-              <article class="card project-card">
-                <p class="project-tag">Retail</p>
-                <h3>Assistente AI per e-commerce</h3>
-                <p>
-                  Chat di supporto clienti che comprende catalogo, stock e policy,
-                  riducendo del 40% i ticket ripetitivi.
-                </p>
-              </article>
-
-              <article class="card project-card">
-                <p class="project-tag">Media</p>
-                <h3>Generazione contenuti editoriali</h3>
-                <p>
-                  Sistema che aiuta la redazione con bozze, titoli e riassunti
-                  multicanale in pochi secondi.
-                </p>
-              </article>
-
-              <article class="card project-card">
-                <p class="project-tag">B2B SaaS</p>
-                <h3>Onboarding intelligente</h3>
-                <p>
-                  Assistente in-app che guida i nuovi utenti, analizza i comportamenti
-                  e suggerisce i prossimi step.
-                </p>
-              </article>
-            </div>
-          </div>
-
-          <button class="slider-btn" id="projectsNext" aria-label="Progetto successivo">›</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- TEAM -->
-    <section id="team" class="section section-light section-full">
-      <div class="container">
-        <div class="section-header center reveal">
-          <p class="eyebrow">Team</p>
-          <h2>Un team ibrido tra tecnica, prodotto e design.</h2>
-        </div>
-
-        <div class="grid-3 team-grid reveal">
-          <article class="card team-card">
-            <div class="avatar-placeholder">A</div>
-            <h3>Nome Cognome</h3>
-            <p class="role">AI Lead</p>
-            <p>Architettura, modelli, integrazioni: guida tutta la parte tecnica.</p>
-          </article>
-
-          <article class="card team-card">
-            <div class="avatar-placeholder">B</div>
-            <h3>Nome Cognome</h3>
-            <p class="role">Product &amp; Strategy</p>
-            <p>Traduce obiettivi di business in roadmap concrete e misurabili.</p>
-          </article>
-
-          <article class="card team-card">
-            <div class="avatar-placeholder">C</div>
-            <h3>Nome Cognome</h3>
-            <p class="role">UX &amp; Delivery</p>
-            <p>Si assicura che le soluzioni siano chiare, usabili e adottate.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATTI -->
-    <section id="contatti" class="section section-dark section-full">
-      <div class="container contact-grid reveal">
-        <div class="contact-intro">
-          <p class="eyebrow eyebrow-light">Contatti diretti</p>
-          <h2>Parlaci del tuo progetto</h2>
-          <p>
-            Scrivici in poche righe chi sei, cosa fai e cosa vorresti costruire.
-            Ti risponderemo con spunti concreti e un possibile primo step.
-          </p>
-
-          <div class="contact-info">
-            <div>
-              <h3>Contatti</h3>
-              <p><strong>Indirizzo</strong>: via Esempio 123, 00100 Roma</p>
-              <p><strong>Email</strong>: <a href="mailto:info@tua-aziendissima.it">info@tua-aziendissima.it</a></p>
-            </div>
-            <div>
-              <h3>Orari</h3>
-              <p>Lunedì – Venerdì</p>
-              <p>09:00 – 18:00</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-form-wrapper">
-          <form id="contactForm" class="card contact-form">
-            <div class="form-row">
-              <div class="form-field">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required />
-              </div>
-              <div class="form-field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="nome@azienda.it" required />
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label for="azienda">Azienda</label>
-              <input type="text" id="azienda" name="azienda" placeholder="Nome azienda" />
-            </div>
-
-            <div class="form-field">
-              <label for="messaggio">Messaggio</label>
-              <textarea id="messaggio" name="messaggio" rows="4" placeholder="Raccontaci il tuo progetto"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary full-width">Invia richiesta</button>
-            <p class="form-success" id="formSuccess" aria-live="polite"></p>
-          </form>
+        <div class="contact-links">
+          <a href="mailto:hello@coredatastudio.it">hello@coredatastudio.it</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>La Tua Aziendissima &copy; <span id="year"></span> · Tutti i diritti riservati</p>
-      <p class="made-with">
-        Made with <span class="heart">♥</span> e un po’ di AI
-      </p>
+    <div class="container footer-content">
+      <span class="f-logo">Core Data Studio</span>
+      <span class="f-copy">&copy; 2025</span>
     </div>
   </footer>
 

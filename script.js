@@ -1,176 +1,88 @@
-document.addEventListener("DOMContentLoaded", () => {
-    /* ANNO FOOTER */
-    const yearEl = document.getElementById("year");
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const images = {
+        hero: {
+            light: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop', 
+            dark: 'https://images.unsplash.com/photo-1639322537228-ad7117a39499?q=80&w=2000&auto=format&fit=crop' 
+        },
+        lecce: {
+            light: 'https://images.unsplash.com/photo-1628178652458-7c858b29c0d5?q=80&w=2000&auto=format&fit=crop', 
+            dark: 'https://images.unsplash.com/photo-1616086749327-d4fa24b17df4?q=80&w=2000&auto=format&fit=crop' 
+        }
+    };
+
+    const translations = {
+        it: {
+            nav_vision: "Visione", nav_services: "Soluzioni", nav_projects: "Lavori", btn_contact: "Contatti",
+            hero_title: "Core Data Studio.<br><span class='gradient-text'>Intelligenza Invisibile.</span>",
+            hero_subtitle: "Ingegnerizziamo gli algoritmi per il tuo prossimo passo avanti. Machine learning puro.",
+            btn_explore: "Le Soluzioni",
+            vision_title: "La complessità è nel DNA.",
+            vision_p1: "Nati a <strong>Lecce</strong>, dove il Barocco ci ha insegnato che la bellezza è nei dettagli.",
+            vision_p2: "Portiamo la stessa cura ingegneristica nei tuoi dati.",
+            services_title: "Competenze", services_sub: "Ingegneria dei dati end-to-end.",
+            srv_1_title: "Analisi Predittiva", srv_1_desc: "Trasforma i dati storici in strategie future.",
+            srv_2_title: "Computer Vision", srv_2_desc: "Occhi automatizzati per controllo qualità e sicurezza.",
+            srv_3_title: "Modelli AI Custom", srv_3_desc: "LLM privati addestrati esclusivamente sui tuoi dati.",
+            projects_title: "Lavori Selezionati",
+            contact_title: "Parliamo di Dati.", contact_desc: "Sede a Lecce, operativi ovunque.", form_btn: "Connettiti"
+        },
+        en: {
+            nav_vision: "Vision", nav_services: "Solutions", nav_projects: "Work", btn_contact: "Contact",
+            hero_title: "Core Data Studio.<br><span class='gradient-text'>Invisible Intelligence.</span>",
+            hero_subtitle: "We engineer the algorithms behind your next breakthrough. Pure machine learning.",
+            btn_explore: "Our Solutions",
+            vision_title: "Complexity is in our DNA.",
+            vision_p1: "Born in <strong>Lecce</strong>, where Baroque architecture taught us beauty lies in details.",
+            vision_p2: "We bring that same engineering craftsmanship to your data pipelines.",
+            services_title: "Capabilities", services_sub: "End-to-end data engineering.",
+            srv_1_title: "Predictive Analytics", srv_1_desc: "Turn historical data into future strategy.",
+            srv_2_title: "Computer Vision", srv_2_desc: "Automated eyes for quality control.",
+            srv_3_title: "Custom AI Models", srv_3_desc: "Private LLMs trained exclusively on your data.",
+            projects_title: "Selected Work",
+            contact_title: "Let's talk Data.", contact_desc: "Based in Lecce, working globally.", form_btn: "Connect"
+        }
+    };
+
+    const els = {
+        aiImg: document.getElementById('aiImage'),
+        lecceImg: document.getElementById('lecceImage'),
+        langBtn: document.getElementById('langToggle'),
+        hamburger: document.getElementById('hamburger'),
+        mobileMenu: document.getElementById('mobileMenu')
+    };
+
+    let currentLang = 'en';
+
+    function updateThemeImages() {
+        const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        els.aiImg.src = isDark ? images.hero.dark : images.hero.light;
+        els.lecceImg.src = isDark ? images.lecce.dark : images.lecce.light;
     }
-  
-    /* MENU MOBILE */
-    const hamburger = document.getElementById("hamburger");
-    const mobileNav = document.getElementById("mobileNav");
-  
-    if (hamburger && mobileNav) {
-      hamburger.addEventListener("click", () => {
-        const isOpen = hamburger.classList.toggle("is-open");
-        mobileNav.style.display = isOpen ? "block" : "none";
-      });
-  
-      mobileNav.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          hamburger.classList.remove("is-open");
-          mobileNav.style.display = "none";
+
+    updateThemeImages();
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateThemeImages);
+
+    els.langBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'it' ? 'en' : 'it';
+        els.langBtn.textContent = currentLang === 'it' ? 'EN' : 'IT';
+        
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[currentLang][key]) el.innerHTML = translations[currentLang][key];
         });
-      });
-    }
-  
-    /* SMOOTH SCROLL + OFFSET HEADER */
-    const header = document.querySelector(".site-header");
-    const scrollLinks = document.querySelectorAll('a[href^="#"]');
-  
-    scrollLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const targetId = link.getAttribute("href");
-        if (!targetId || targetId === "#") return;
-  
-        const targetEl = document.querySelector(targetId);
-        if (!targetEl) return;
-  
-        e.preventDefault();
-  
-        const headerHeight = header ? header.offsetHeight : 0;
-        const rect = targetEl.getBoundingClientRect();
-        const offsetTop = window.scrollY + rect.top - headerHeight - 12;
-  
-        window.scrollTo({
-          top: offsetTop,
-          behavior: "smooth",
-        });
-      });
     });
-  
-    /* EVIDENZIAZIONE LINK NAV IN BASE ALLA SEZIONE */
-    const sections = document.querySelectorAll("main section[id]");
-    const navLinks = document.querySelectorAll(".nav-link");
-  
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            const id = entry.target.id;
-  
-            navLinks.forEach((link) => {
-              const href = link.getAttribute("href") || "";
-              if (href === `#${id}`) {
-                link.classList.add("is-active");
-              } else {
-                link.classList.remove("is-active");
-              }
-            });
-          });
-        },
-        {
-          threshold: 0.45,
-        }
-      );
-  
-      sections.forEach((section) => observer.observe(section));
-    }
-  
-    /* SLIDER PROGETTI SEMPLICE */
-    const track = document.querySelector(".projects-track");
-    const cards = document.querySelectorAll(".project-card");
-    const prevBtn = document.getElementById("projectsPrev");
-    const nextBtn = document.getElementById("projectsNext");
-  
-    if (track && cards.length > 0 && prevBtn && nextBtn) {
-      let currentIndex = 0;
-  
-      const updateSlider = () => {
-        const gap = 16;
-        const cardWidth = cards[0].offsetWidth + gap;
-        const offset = -currentIndex * cardWidth;
-        track.style.transform = `translateX(${offset}px)`;
-      };
-  
-      prevBtn.addEventListener("click", () => {
-        currentIndex = Math.max(0, currentIndex - 1);
-        updateSlider();
-      });
-  
-      nextBtn.addEventListener("click", () => {
-        const maxIndex = cards.length - 1;
-        currentIndex = Math.min(maxIndex, currentIndex + 1);
-        updateSlider();
-      });
-  
-      window.addEventListener("resize", updateSlider);
-    }
-  
-    /* FORM CONTATTI (FAKE SUBMIT, SOLO FRONTEND) */
-    const contactForm = document.getElementById("contactForm");
-    const formSuccess = document.getElementById("formSuccess");
-  
-    if (contactForm) {
-      contactForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        contactForm.reset();
-  
-        if (formSuccess) {
-          formSuccess.textContent =
-            "Grazie! La tua richiesta è stata inviata, ti ricontatteremo al più presto.";
-        }
-      });
-    }
-  
-    /* PROGRESS BAR SCROLL */
-    const progressBar = document.getElementById("scrollProgress");
-    if (progressBar) {
-      const updateProgress = () => {
-        const scrollTop = window.scrollY || window.pageYOffset;
-        const docHeight =
-          document.documentElement.scrollHeight - window.innerHeight;
-        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        progressBar.style.width = `${progress}%`;
-      };
-  
-      updateProgress();
-      window.addEventListener("scroll", updateProgress);
-    }
-  
-    /* ANIMAZIONI REVEAL SU SCROLL */
-    const revealEls = document.querySelectorAll(".reveal");
-  
-    if ("IntersectionObserver" in window && revealEls.length > 0) {
-      const revealObserver = new IntersectionObserver(
-        (entries, obs) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              obs.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.25,
-          rootMargin: "0px 0px -40px 0px",
-        }
-      );
-  
-      revealEls.forEach((el) => revealObserver.observe(el));
-    } else {
-      revealEls.forEach((el) => el.classList.add("is-visible"));
-    }
-  
-    /* PARALLAX LEGGERO HERO ORBIT */
-    const orbit = document.querySelector(".hero-orbit");
-    if (orbit) {
-      const parallax = () => {
-        const scrolled = window.scrollY || 0;
-        orbit.style.transform = `translateY(${scrolled * -0.04}px)`;
-      };
-      parallax();
-      window.addEventListener("scroll", parallax);
-    }
-  });
-  
+
+    els.hamburger.addEventListener('click', () => {
+        const isOpen = els.mobileMenu.style.display === 'block';
+        els.mobileMenu.style.display = isOpen ? 'none' : 'block';
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+});
