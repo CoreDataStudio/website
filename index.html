@@ -14,14 +14,12 @@
 </head>
 <body id="top">
   
-  <!-- Subtle Background Grid -->
   <div class="bg-grid"></div>
 
   <!-- FLOATING MENU -->
   <header class="floating-header">
     <div class="nav-pill">
       <a href="#top" class="logo-link" aria-label="Home">
-        <!-- Make sure you have img/logo.png in your folder -->
         <img src="img/logo.png" alt="Core Data Studio" class="logo-img">
       </a>
 
@@ -39,7 +37,6 @@
       <button class="hamburger" id="hamburger"><span></span></button>
     </div>
 
-    <!-- Mobile Dropdown -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="#vision">Vision</a>
       <a href="#servizi">Solutions</a>
@@ -51,9 +48,47 @@
   <main>
     <!-- HERO SECTION -->
     <section class="section hero-section">
+      
+      <!-- ANIMATED NEURAL CORE -->
+      <div class="neural-core-wrapper">
+        <svg class="neural-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="gradTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--col-teal); stop-opacity:0.6" />
+                    <stop offset="100%" style="stop-color:var(--col-teal); stop-opacity:0.1" />
+                </linearGradient>
+                <linearGradient id="gradYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--col-yellow); stop-opacity:0.8" />
+                    <stop offset="100%" style="stop-color:var(--col-yellow); stop-opacity:0.2" />
+                </linearGradient>
+            </defs>
+
+            <g class="ring-outer">
+                <circle cx="400" cy="400" r="350" fill="none" stroke="var(--col-teal)" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="10 20"/>
+                <circle cx="400" cy="400" r="330" fill="none" stroke="url(#gradTeal)" stroke-width="2" stroke-opacity="0.5" />
+            </g>
+
+            <g class="ring-middle">
+                <path d="M400 100 L660 250 L660 550 L400 700 L140 550 L140 250 Z" fill="none" stroke="var(--col-cream)" stroke-width="1" stroke-opacity="0.2" />
+                <circle cx="400" cy="100" r="4" fill="var(--col-yellow)" />
+                <circle cx="660" cy="250" r="4" fill="var(--col-yellow)" />
+                <circle cx="660" cy="550" r="4" fill="var(--col-yellow)" />
+                <circle cx="400" cy="700" r="4" fill="var(--col-yellow)" />
+                <circle cx="140" cy="550" r="4" fill="var(--col-yellow)" />
+                <circle cx="140" cy="250" r="4" fill="var(--col-yellow)" />
+            </g>
+
+            <g class="ring-inner">
+                <circle cx="400" cy="400" r="100" fill="none" stroke="url(#gradYellow)" stroke-width="3" stroke-dasharray="50 50" />
+                <circle cx="400" cy="400" r="60" fill="var(--col-teal)" fill-opacity="0.2" />
+            </g>
+            
+            <circle class="particle p1" cx="400" cy="400" r="3" fill="var(--col-cream)" />
+            <circle class="particle p2" cx="400" cy="400" r="5" fill="var(--col-yellow)" />
+        </svg>
+      </div>
+
       <div class="container hero-grid">
-        
-        <!-- Text Content -->
         <div class="hero-content reveal">
           <div class="badge">
             <span class="badge-dot"></span> Lecce, Italy
@@ -67,30 +102,22 @@
             Pure machine learning, blended seamlessly into your business.
           </p>
           <div class="hero-cta-group">
-            <a href="#servizi" class="btn btn-primary" data-i18n="btn_explore">Our Solutions</a>
+            <!-- UPDATED: Using the GLASS BUTTON class -->
+            <a href="#servizi" class="btn-glass" data-i18n="btn_explore">Our Solutions</a>
           </div>
         </div>
-
-        <!-- HERO VISUAL (The Blob with YOUR IMAGE) -->
-        <div class="hero-visual reveal">
-          <div class="blob-frame">
-             <img id="aiImage" 
-                  src="https://media.istockphoto.com/id/1053434168/photo/neurons-cells-concept.jpg?s=612x612&w=0&k=20&c=WsA4glAgBMQ-ur_McjozmX9FUqsQdUcHUhVgX4a-vH0=" 
-                  alt="Neurons Network AI"
-                  class="blob-img">
-          </div>
-        </div>
+        <div class="hero-visual-spacer"></div>
       </div>
     </section>
 
-    <!-- VISION / LECCE -->
+    <!-- VISION -->
     <section id="vision" class="section">
       <div class="container grid-2">
         <div class="visual-box reveal">
            <div class="image-wrapper">
              <img id="lecceImage" 
-                  src="https://images.unsplash.com/photo-1628178652458-7c858b29c0d5?q=80&w=2000&auto=format&fit=crop" 
-                  alt="Lecce Architecture Details" 
+                  src="img/lecceimg.jpeg" 
+                  alt="Lecce Architecture" 
                   class="cover-img">
              <div class="location-tag">
                <i class="ph-fill ph-map-pin"></i> HQ: Lecce
