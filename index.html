@@ -16,34 +16,28 @@
   
   <div class="bg-grid"></div>
 
-  <!-- FLOATING MENU -->
-  <header class="floating-header">
-    <div class="nav-pill">
-      <a href="#top" class="logo-link" aria-label="Home">
-        <img src="img/logo.png" alt="Core Data Studio" class="logo-img">
-      </a>
+  <!-- MINIMAL TOP ACTIONS -->
+  <header class="top-actions">
+    <!-- Language Button (Left) -->
+    <button id="headerLangBtn" class="glass-btn" aria-label="Switch Language">EN</button>
 
-      <nav class="pill-nav">
-        <a href="#vision" data-i18n="nav_vision">Vision</a>
-        <a href="#servizi" data-i18n="nav_services">Solutions</a>
-        <a href="#progetti" data-i18n="nav_projects">Work</a>
-      </nav>
-
-      <div class="pill-controls">
-        <button id="langToggle" class="lang-text">EN</button>
-        <a href="#contatti" class="btn-micro" data-i18n="btn_contact">Contact</a>
-      </div>
-      
-      <button class="hamburger" id="hamburger"><span></span></button>
-    </div>
-
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#vision">Vision</a>
-      <a href="#servizi">Solutions</a>
-      <a href="#progetti">Work</a>
-      <a href="#contatti">Contact</a>
-    </div>
+    <!-- Menu Button (Right) -->
+    <button id="headerMenuBtn" class="glass-btn" aria-label="Open Menu">
+      <i class="ph ph-list"></i>
+    </button>
   </header>
+
+  <!-- FULLSCREEN OVERLAY MENU -->
+  <nav id="fullscreenMenu" class="fullscreen-menu">
+    <button id="closeMenu" class="close-btn"><i class="ph ph-x"></i></button>
+    
+    <div class="menu-nav">
+      <a href="#vision" data-i18n="nav_vision">Vision</a>
+      <!-- <a href="#servizi" data-i18n="nav_services">Solutions</a> -->
+      <a href="#progetti" data-i18n="nav_projects">Work</a>
+      <a href="#contatti" data-i18n="btn_contact">Contact</a>
+    </div>
+  </nav>
 
   <main>
     <!-- HERO SECTION -->
@@ -90,65 +84,118 @@
 
       <div class="container hero-grid">
         <div class="hero-content reveal">
-          <div class="badge">
-            <span class="badge-dot"></span> Lecce, Italy
-          </div>
+          
+          
+          <!-- UPDATED H1 STRUCTURE -->
           <h1 data-i18n="hero_title">
-            Core Data Studio.<br>
-            <span class="gradient-text">Invisible Intelligence.</span>
+            Core Data Studio<br>
+            <span class="gradient-text">
+              Useful data.<br>
+              Better decisions.
+            </span>
           </h1>
+
           <p class="hero-sub" data-i18n="hero_subtitle">
-            We engineer the algorithms behind your next breakthrough. 
-            Pure machine learning, blended seamlessly into your business.
+            We design AI and machine learning systems that deliver real competitive advantage.
           </p>
           <div class="hero-cta-group">
-            <!-- UPDATED: Using the GLASS BUTTON class -->
-            <a href="#servizi" class="btn-glass" data-i18n="btn_explore">Our Solutions</a>
+            <a href="#progetti" class="btn-glass" data-i18n="btn_explore">Our Projects</a>
           </div>
         </div>
         <div class="hero-visual-spacer"></div>
       </div>
     </section>
 
-    <!-- VISION -->
-    <section id="vision" class="section">
-      <div class="container grid-2">
-        <div class="visual-box reveal">
-           <div class="image-wrapper">
-             <img id="lecceImage" 
-                  src="img/lecceimg.jpeg" 
-                  alt="Lecce Architecture" 
-                  class="cover-img">
-             <div class="location-tag">
-               <i class="ph-fill ph-map-pin"></i> HQ: Lecce
-             </div>
-           </div>
-        </div>
-        
-        <div class="content-box reveal">
-          <h2 data-i18n="vision_title">Complexity is in our DNA.</h2>
-          <p data-i18n="vision_p1">
-            Born in <strong>Lecce</strong>, where Baroque architecture taught us that beauty lies in complex, interconnected details.
-          </p>
-          <p data-i18n="vision_p2">
-            We bring that same engineering craftsmanship to your data pipelines. We don't just run code; we architect sustainable intelligence.
-          </p>
+    <!-- VISION REIMAGINED -->
+    <section id="vision" class="section vision-section">
+        <div class="container">
           
-          <div class="stats-minimal">
-            <div class="stat-item">
-              <strong>98%</strong>
-              <span>Accuracy</span>
+          <!-- The Cinematic Canvas (Animation Trigger) -->
+          <div class="vision-canvas reveal">
+            
+            <!-- 1. Background Image -->
+            <div class="vision-bg"></div>
+            
+            <!-- 2. Gradient & UI Decorations -->
+            <div class="vision-overlay"></div>
+            <div class="vision-ui-lines">
+              <div class="vision-crosshair"></div>
             </div>
-            <div class="stat-item">
-              <strong>Agile</strong>
-              <span>Method</span>
+  
+            <!-- 3. The Glass HUD Content -->
+            <div class="vision-content-glass">
+              
+              <!-- Stagger Item 1: Meta -->
+              <div class="vision-meta">
+                <i class="ph-fill ph-map-pin"></i>
+                <span>Lat: 40.35° N · HQ: Lecce</span>
+              </div>
+  
+              <!-- Stagger Item 2: Title -->
+              <h2 data-i18n="vision_title">Complexity is our native language.</h2>
+  
+              <!-- Stagger Item 3: Paragraph 1 -->
+              <p data-i18n="vision_p1">
+                Born in <strong>Lecce</strong>, where Baroque mastery teaches that excellence lives in precision.
+              </p>
+              
+              <!-- Stagger Item 4: Paragraph 2 -->
+              <p data-i18n="vision_p2">
+                We apply that same <span class="highlight">engineering craftsmanship</span> to your data pipelines. We don't just run code; we architect sustainable intelligence.
+              </p>
             </div>
+  
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
+      </section>
+  
+  
+      
+    <!-- PROJECTS -->
+    <section id="progetti" class="section">
+        <div class="container">
+            <div class="section-head reveal">
+            <h2 data-i18n="projects_title">Main Projects</h2>
+            </div>
+    
+            <div class="projects-cards">
+            <!-- Eurostat Agent -->
+            <article class="project-card reveal">
+                <div class="project-card-bg" style="background-image: url('img/sdmx.png');"></div>
+                <div class="project-card-content">
+                <h3 class="project-card-title">Eurostat Agent</h3>
+                <p class="project-card-sub">
+                    Intelligent assistant on top of Eurostat data for fast, conversational analysis.
+                </p>
+                </div>
+            </article>
+    
+            <!-- Cappuccino News -->
+            <article class="project-card reveal">
+                <div class="project-card-bg" style="background-image: url('img/cappuccinonews.png');"></div>
+                <div class="project-card-content">
+                <h3 class="project-card-title">Cappuccino News</h3>
+                <p class="project-card-sub">
+                    Morning briefings powered by LLMs: curated news, clean summaries, zero noise.
+                </p>
+                </div>
+            </article>
+    
+            <!-- Regional Analysis -->
+            <article class="project-card reveal">
+                <div class="project-card-bg" style="background-image: url('img/belloluogo.jpeg');"></div>
+                <div class="project-card-content">
+                <h3 class="project-card-title">Regional Analysis</h3>
+                <p class="project-card-sub">
+                    Geo-aware dashboards and AI models focused on regional economic dynamics.
+                </p>
+                </div>
+            </article>
+            </div>
+        </div>
+        </section>
+      
+    <!-- SERVICES
     <section id="servizi" class="section bg-subtle">
       <div class="container">
         <div class="section-head reveal">
@@ -176,54 +223,97 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- PROJECTS -->
-    <section id="progetti" class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 data-i18n="projects_title">Selected Work</h2>
-        </div>
-        <div class="projects-list">
-            <a href="#" class="project-row reveal">
-                <span class="proj-num">01</span>
-                <span class="proj-cat">AgriTech</span>
-                <span class="proj-name">Olive Tree Health AI</span>
-                <span class="proj-arrow"><i class="ph ph-arrow-right"></i></span>
-            </a>
-            <a href="#" class="project-row reveal">
-                <span class="proj-num">02</span>
-                <span class="proj-cat">Fintech</span>
-                <span class="proj-name">Credit Risk Engine</span>
-                <span class="proj-arrow"><i class="ph ph-arrow-right"></i></span>
-            </a>
-            <a href="#" class="project-row reveal">
-                <span class="proj-num">03</span>
-                <span class="proj-cat">Retail</span>
-                <span class="proj-name">Demand Forecasting</span>
-                <span class="proj-arrow"><i class="ph ph-arrow-right"></i></span>
-            </a>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- CONTACT -->
+    <!-- CONTACT -->
+    <!-- CONTACT / COFOUNDERS -->
     <section id="contatti" class="section section-cta">
-      <div class="container cta-container reveal">
-        <h2 data-i18n="contact_title">Let's talk Data.</h2>
-        <p data-i18n="contact_desc">Based in Lecce, working globally.</p>
-        
-        <form class="minimal-form">
-          <input type="email" placeholder="email@company.com" required>
-          <button type="submit" class="btn btn-primary" data-i18n="form_btn">Connect</button>
-        </form>
-
-        <div class="contact-links">
-          <a href="mailto:hello@coredatastudio.it">hello@coredatastudio.it</a>
+        <div class="container cta-container reveal">
+        <h2>Our Contacts</h2>
+        <p>We are the two co-founders of Core Data Studio.</p>
+    
+        <div class="founders-grid">
+            <!-- Alessandro -->
+            <article class="founder-card">
+            <div class="founder-photo">
+                <img src="img/Alessandro.jpeg" alt="Alessandro" loading="lazy">
+            </div>
+            <div class="founder-info">
+                <h3 class="founder-name">Alessandro</h3>
+                <p class="founder-role">MSc Data Science and Engineering</p>
+                <ul class="founder-meta">
+                <!-- <li>
+                    <span class="label">Education</span>
+                    <span class="value">MSc Data Science and Engineering</span>
+                </li>
+                <li>
+                    <span class="label">University </span>
+                    <span class="value">Polytechnic of Turin</span>
+                </li> -->
+                <li>
+                    <span class="label">Email</span>
+                    <span class="value">
+                    <a href="mailto:[alessandro.feri.m@email.com">alessandro.feri.m@email.com</a>
+                    </span>
+                </li>
+                <li>
+                    <span class="label">GitHub</span>
+                    <span class="value">
+                    <a href="https://github.com/[username]" target="_blank" rel="noopener noreferrer">
+                        github.com/[username]
+                    </a>
+                    </span>
+                </li>
+                </ul>
+            </div>
+            </article>
+    
+            <!-- Michelangelo -->
+            <article class="founder-card">
+            <div class="founder-photo">
+                <img src="img/Michelangelo.jpeg" alt="Michelangelo" loading="lazy">
+            </div>
+            <div class="founder-info">
+                <h3 class="founder-name">Michelangelo</h3>
+                <p class="founder-role">MSc Computer Engineering and AI</p>
+                <ul class="founder-meta">
+                    <!-- <li>
+                        <span class="label">Education</span>
+                        <span class="value">MSc Computer Engineering and AI</span>
+                    </li>
+                    <li>
+                        <span class="label">University </span>
+                        <span class="value">Polytechnic of Turin</span>
+                    </li> -->
+                <li>
+                    <span class="label">Email</span>
+                    <span class="value">
+                    <a href="mailto:[michelangelo.caretto@email.com]">michelangelo.caretto@email.com</a>
+                    </span>
+                </li>
+                <li>
+                    <span class="label">GitHub</span>
+                    <span class="value">
+                    <a href="https://github.com/[username]" target="_blank" rel="noopener noreferrer">
+                        github.com/[username]
+                    </a>
+                    </span>
+                </li>
+                </ul>
+            </div>
+            </article>
         </div>
-      </div>
+    
+        
+        </div>
     </section>
-  </main>
+  
+  
+
+  
 
   <footer class="site-footer">
     <div class="container footer-content">
