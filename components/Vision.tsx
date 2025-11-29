@@ -82,7 +82,7 @@ export const Vision: React.FC<VisionProps> = ({ lang }) => {
             >
                 <motion.div style={{ y }} className="w-full h-[120%] -mt-[10%]">
                     <img 
-                        src="/img/lecceimg.jpeg" 
+                        src="./img/lecceimg.jpeg" 
                         alt="Lecce Baroque Architecture" 
                         className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                     />

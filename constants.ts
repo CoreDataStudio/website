@@ -59,21 +59,21 @@ export const PROJECTS = [
     id: 1,
     title: "Eurostat Agent",
     desc: "Intelligent assistant on top of Eurostat data for fast, conversational analysis.",
-    image: "/img/sdmx.png", 
+    image: "./img/sdmx.png", 
     bgFit: "contain"
   },
   {
     id: 2,
     title: "Cappuccino News",
     desc: "Morning briefings powered by LLMs: curated news, clean summaries, zero noise.",
-    image: "/img/cappuccinonews.png",
+    image: "./img/cappuccinonews.png",
     bgFit: "cover"
   },
   {
     id: 3,
     title: "Regional Analysis",
     desc: "Geo-aware dashboards and AI models focused on regional economic dynamics.",
-    image: "/img/olivetree.jpg",
+    image: "./img/olivetree.jpg",
     bgFit: "cover"
   },
 ];
@@ -84,13 +84,13 @@ export const FOUNDERS = [
     roleKey: "founder_role_1",
     email: "alessandro.feri.m@gmail.com",
     github: "github.com/alessandroferi99",
-    image: "/img/Alessandro.jpeg"
+    image: "./img/Alessandro.jpeg"
   },
   {
     name: "Michelangelo Caretto",
     roleKey: "founder_role_2",
     email: "michelangelo.caretto@gmail.com",
     github: "github.com/rasenqt",
-    image: "/img/Michelangelo.jpeg"
+    image: "./img/Michelangelo.jpeg"
   }
 ];
