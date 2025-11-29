@@ -1,328 +1,74 @@
 <!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Core Data Studio - From Data to Decisions</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="img/logo.png" />
-
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <link rel="stylesheet" href="style.css" />
+<html lang="en" class="scroll-smooth antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Core Data Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['Space Mono', 'monospace'],
+            },
+            colors: {
+              cds: {
+                bg: '#050505',       /* Pure Black */
+                bgCard: '#111111',   /* Soft Black */
+                fg: '#E4E4E7',       /* Zinc 200 */
+                fgMuted: '#71717A',  /* Zinc 500 */
+                border: '#27272A',   /* Zinc 800 */
+                accent: '#FFC94A',   /* Core Yellow */
+              }
+            },
+            backgroundImage: {
+              'noise': "url('data:image/svg+xml,%3Csvg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noiseFilter\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.65\" numOctaves=\"3\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"100%25\" height=\"100%25\" filter=\"url(%23noiseFilter)\" opacity=\"0.05\"/%3E%3C/svg%3E')",
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050505;
+        color: #E4E4E7;
+      }
+      /* Hide scrollbar for cleaner look */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050505;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #FFC94A;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
-<body id="top">
-  
-  <div class="bg-grid"></div>
-
-  <!-- MINIMAL TOP ACTIONS -->
-  <header class="top-actions">
-    <!-- Language Button (Left) -->
-    <button id="headerLangBtn" class="glass-btn" aria-label="Switch Language">EN</button>
-
-    <!-- Menu Button (Right) -->
-    <button id="headerMenuBtn" class="glass-btn" aria-label="Open Menu">
-      <i class="ph ph-list"></i>
-    </button>
-  </header>
-
-  <!-- FULLSCREEN OVERLAY MENU -->
-  <nav id="fullscreenMenu" class="fullscreen-menu">
-    <button id="closeMenu" class="close-btn"><i class="ph ph-x"></i></button>
-    
-    <div class="menu-nav">
-      <a href="#vision" data-i18n="nav_vision">Vision</a>
-      <!-- <a href="#servizi" data-i18n="nav_services">Solutions</a> -->
-      <a href="#progetti" data-i18n="nav_projects">Work</a>
-      <a href="#contatti" data-i18n="btn_contact">Contact</a>
-    </div>
-  </nav>
-
-  <main>
-    <!-- HERO SECTION -->
-    <section class="section hero-section">
-      
-      <!-- ANIMATED NEURAL CORE -->
-      <div class="neural-core-wrapper">
-        <svg class="neural-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="gradTeal" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:var(--col-teal); stop-opacity:0.6" />
-                    <stop offset="100%" style="stop-color:var(--col-teal); stop-opacity:0.1" />
-                </linearGradient>
-                <linearGradient id="gradYellow" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:var(--col-yellow); stop-opacity:0.8" />
-                    <stop offset="100%" style="stop-color:var(--col-yellow); stop-opacity:0.2" />
-                </linearGradient>
-            </defs>
-
-            <g class="ring-outer">
-                <circle cx="400" cy="400" r="350" fill="none" stroke="var(--col-teal)" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="10 20"/>
-                <circle cx="400" cy="400" r="330" fill="none" stroke="url(#gradTeal)" stroke-width="2" stroke-opacity="0.5" />
-            </g>
-
-            <g class="ring-middle">
-                <path d="M400 100 L660 250 L660 550 L400 700 L140 550 L140 250 Z" fill="none" stroke="var(--col-cream)" stroke-width="1" stroke-opacity="0.2" />
-                <circle cx="400" cy="100" r="4" fill="var(--col-yellow)" />
-                <circle cx="660" cy="250" r="4" fill="var(--col-yellow)" />
-                <circle cx="660" cy="550" r="4" fill="var(--col-yellow)" />
-                <circle cx="400" cy="700" r="4" fill="var(--col-yellow)" />
-                <circle cx="140" cy="550" r="4" fill="var(--col-yellow)" />
-                <circle cx="140" cy="250" r="4" fill="var(--col-yellow)" />
-            </g>
-
-            <g class="ring-inner">
-                <circle cx="400" cy="400" r="100" fill="none" stroke="url(#gradYellow)" stroke-width="3" stroke-dasharray="50 50" />
-                <circle cx="400" cy="400" r="60" fill="var(--col-teal)" fill-opacity="0.2" />
-            </g>
-            
-            <circle class="particle p1" cx="400" cy="400" r="3" fill="var(--col-cream)" />
-            <circle class="particle p2" cx="400" cy="400" r="5" fill="var(--col-yellow)" />
-        </svg>
-      </div>
-
-      <div class="container hero-grid">
-        <div class="hero-content reveal">
-          
-          
-          <!-- UPDATED H1 STRUCTURE -->
-          <h1 data-i18n="hero_title">
-            Core Data Studio<br>
-            <span class="gradient-text">
-              Useful data.<br>
-              Better decisions.
-            </span>
-          </h1>
-
-          <p class="hero-sub" data-i18n="hero_subtitle">
-            We design AI and machine learning systems that deliver real competitive advantage.
-          </p>
-          <div class="hero-cta-group">
-            <a href="#progetti" class="btn-glass" data-i18n="btn_explore">Our Projects</a>
-          </div>
-        </div>
-        <div class="hero-visual-spacer"></div>
-      </div>
-    </section>
-
-    <!-- VISION REIMAGINED -->
-    <section id="vision" class="section vision-section">
-        <div class="container">
-          
-          <!-- The Cinematic Canvas (Animation Trigger) -->
-          <div class="vision-canvas reveal">
-            
-            <!-- 1. Background Image -->
-            <div class="vision-bg"></div>
-            
-            <!-- 2. Gradient & UI Decorations -->
-            <div class="vision-overlay"></div>
-            <div class="vision-ui-lines">
-              <div class="vision-crosshair"></div>
-            </div>
-  
-            <!-- 3. The Glass HUD Content -->
-            <div class="vision-content-glass">
-              
-              <!-- Stagger Item 1: Meta -->
-              <div class="vision-meta">
-                <i class="ph-fill ph-map-pin"></i>
-                <span>Lat: 40.35° N · HQ: Lecce</span>
-              </div>
-  
-              <!-- Stagger Item 2: Title -->
-              <h2 data-i18n="vision_title">Complexity is our native language.</h2>
-  
-              <!-- Stagger Item 3: Paragraph 1 -->
-              <p data-i18n="vision_p1">
-                Born in <strong>Lecce</strong>, where Baroque mastery teaches that excellence lives in precision.
-              </p>
-              
-              <!-- Stagger Item 4: Paragraph 2 -->
-              <p data-i18n="vision_p2">
-                We apply that same <span class="highlight">engineering craftsmanship</span> to your data pipelines. We don't just run code; we architect sustainable intelligence.
-              </p>
-            </div>
-  
-          </div>
-        </div>
-      </section>
-  
-  
-      
-    <!-- PROJECTS -->
-    <section id="progetti" class="section">
-        <div class="container">
-            <div class="section-head reveal">
-            <h2 data-i18n="projects_title">Main Projects</h2>
-            </div>
-    
-            <div class="projects-cards">
-            <!-- Eurostat Agent -->
-            <article class="project-card reveal">
-                <div class="project-card-bg" style="background-image: url('img/sdmx.png');"></div>
-                <div class="project-card-content">
-                <h3 class="project-card-title">Eurostat Agent</h3>
-                <p class="project-card-sub">
-                    Intelligent assistant on top of Eurostat data for fast, conversational analysis.
-                </p>
-                </div>
-            </article>
-    
-            <!-- Cappuccino News -->
-            <article class="project-card reveal">
-                <div class="project-card-bg" style="background-image: url('img/cappuccinonews.png');"></div>
-                <div class="project-card-content">
-                <h3 class="project-card-title">Cappuccino News</h3>
-                <p class="project-card-sub">
-                    Morning briefings powered by LLMs: curated news, clean summaries, zero noise.
-                </p>
-                </div>
-            </article>
-    
-            <!-- Regional Analysis -->
-            <article class="project-card reveal">
-                <div class="project-card-bg" style="background-image: url('img/belloluogo.jpeg');"></div>
-                <div class="project-card-content">
-                <h3 class="project-card-title">Regional Analysis</h3>
-                <p class="project-card-sub">
-                    Geo-aware dashboards and AI models focused on regional economic dynamics.
-                </p>
-                </div>
-            </article>
-            </div>
-        </div>
-        </section>
-      
-    <!-- SERVICES
-    <section id="servizi" class="section bg-subtle">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 data-i18n="services_title">Capabilities</h2>
-          <p data-i18n="services_sub">End-to-end data engineering.</p>
-        </div>
-
-        <div class="services-grid">
-          <div class="srv-card reveal">
-            <i class="ph ph-chart-polar icon-big"></i>
-            <h3 data-i18n="srv_1_title">Predictive Analytics</h3>
-            <p data-i18n="srv_1_desc">Turn historical data into future strategy with advanced statistical modeling.</p>
-          </div>
-
-          <div class="srv-card reveal delay-1">
-            <i class="ph ph-scan icon-big"></i>
-            <h3 data-i18n="srv_2_title">Computer Vision</h3>
-            <p data-i18n="srv_2_desc">Automated eyes for quality control, security, and object detection.</p>
-          </div>
-
-          <div class="srv-card reveal delay-2">
-            <i class="ph ph-cpu icon-big"></i>
-            <h3 data-i18n="srv_3_title">Custom AI Models</h3>
-            <p data-i18n="srv_3_desc">Private LLMs and algorithms trained exclusively on your corporate data.</p>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    
-
-    <!-- CONTACT -->
-    <!-- CONTACT -->
-    <!-- CONTACT / COFOUNDERS -->
-    <section id="contatti" class="section section-cta">
-        <div class="container cta-container reveal">
-        <h2>Our Contacts</h2>
-        <p>We are the two co-founders of Core Data Studio.</p>
-    
-        <div class="founders-grid">
-            <!-- Alessandro -->
-            <article class="founder-card">
-            <div class="founder-photo">
-                <img src="img/Alessandro.jpeg" alt="Alessandro" loading="lazy">
-            </div>
-            <div class="founder-info">
-                <h3 class="founder-name">Alessandro</h3>
-                <p class="founder-role">MSc Data Science and Engineering</p>
-                <ul class="founder-meta">
-                <!-- <li>
-                    <span class="label">Education</span>
-                    <span class="value">MSc Data Science and Engineering</span>
-                </li>
-                <li>
-                    <span class="label">University </span>
-                    <span class="value">Polytechnic of Turin</span>
-                </li> -->
-                <li>
-                    <span class="label">Email</span>
-                    <span class="value">
-                    <a href="mailto:[alessandro.feri.m@email.com">alessandro.feri.m@email.com</a>
-                    </span>
-                </li>
-                <li>
-                    <span class="label">GitHub</span>
-                    <span class="value">
-                    <a href="https://github.com/[username]" target="_blank" rel="noopener noreferrer">
-                        github.com/[username]
-                    </a>
-                    </span>
-                </li>
-                </ul>
-            </div>
-            </article>
-    
-            <!-- Michelangelo -->
-            <article class="founder-card">
-            <div class="founder-photo">
-                <img src="img/Michelangelo.jpeg" alt="Michelangelo" loading="lazy">
-            </div>
-            <div class="founder-info">
-                <h3 class="founder-name">Michelangelo</h3>
-                <p class="founder-role">MSc Computer Engineering and AI</p>
-                <ul class="founder-meta">
-                    <!-- <li>
-                        <span class="label">Education</span>
-                        <span class="value">MSc Computer Engineering and AI</span>
-                    </li>
-                    <li>
-                        <span class="label">University </span>
-                        <span class="value">Polytechnic of Turin</span>
-                    </li> -->
-                <li>
-                    <span class="label">Email</span>
-                    <span class="value">
-                    <a href="mailto:[michelangelo.caretto@email.com]">michelangelo.caretto@email.com</a>
-                    </span>
-                </li>
-                <li>
-                    <span class="label">GitHub</span>
-                    <span class="value">
-                    <a href="https://github.com/[username]" target="_blank" rel="noopener noreferrer">
-                        github.com/[username]
-                    </a>
-                    </span>
-                </li>
-                </ul>
-            </div>
-            </article>
-        </div>
-    
-        
-        </div>
-    </section>
-  
-  
-
-  
-
-  <footer class="site-footer">
-    <div class="container footer-content">
-      <span class="f-logo">Core Data Studio</span>
-      <span class="f-copy">&copy; 2025</span>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
