@@ -78,7 +78,7 @@ export const Vision: React.FC<VisionProps> = ({ lang }) => {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-                className="relative w-full aspect-[4/3] md:aspect-auto md:h-[400px] overflow-hidden border border-cds-border bg-cds-bgCard"
+                className="relative w-full aspect-[4/3] md:aspect-auto md:h-[600px] overflow-hidden border border-cds-border bg-cds-bgCard"
             >
                 <motion.div style={{ y }} className="w-full h-[120%] -mt-[10%]">
                     <img 
