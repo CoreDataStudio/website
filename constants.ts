@@ -22,9 +22,10 @@ export const TRANSLATIONS = {
     contact_desc: "Co-fondatori di Core Data Studio.",
     founder_role_1: "MSc Data Science and Engineering",
     founder_role_2: "MSc Computer Engineering and AI",
-    cookie_msg: "Utilizziamo i cookie per analizzare il traffico e migliorare l'esperienza utente.",
+    cookie_msg: "Utilizziamo cookie essenziali per il funzionamento del sito e, solo con il tuo consenso, cookie analitici per migliorare l'esperienza.",
     cookie_accept: "Accetta",
     cookie_decline: "Rifiuta",
+    cookie_privacy: "Informativa privacy",
   },
   en: {
     nav_vision: "Vision",
@@ -48,9 +49,10 @@ export const TRANSLATIONS = {
     contact_desc: "Co-founders of Core Data Studio.",
     founder_role_1: "MSc Data Science and Engineering",
     founder_role_2: "MSc Computer Engineering and AI",
-    cookie_msg: "We use cookies to analyze traffic and improve user experience.",
+    cookie_msg: "We use essential cookies to run this site and, only with your consent, analytics cookies to improve your experience.",
     cookie_accept: "Accept",
     cookie_decline: "Decline",
+    cookie_privacy: "Privacy policy",
   }
 };
 
