@@ -6,7 +6,6 @@ export const LogoHero: React.FC = () => {
   return (
     <div className="w-full h-full relative flex items-center justify-center p-4">
       <motion.svg 
-        /* Using the exact viewBox from your SVG, but added a small buffer (-10) to prevent stroke clipping */
         viewBox="-20 -20 288 228" 
         fill="none" 
         preserveAspectRatio="xMidYMid meet"
@@ -33,7 +32,6 @@ export const LogoHero: React.FC = () => {
           `}
         </style>
         
-        {/* Main Path */}
         <motion.path 
           className="st0" 
           d="M83.25,40h-43.25v60.56h121.11v60.56h-43.25"
@@ -42,7 +40,6 @@ export const LogoHero: React.FC = () => {
           transition={{ duration: 1.5, ease: "easeInOut" }}
         />
 
-        {/* Text Elements - Animated Fade In */}
         <motion.g
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -54,8 +51,6 @@ export const LogoHero: React.FC = () => {
             <text className="st1" transform="translate(180.71 168.68)">
                 <tspan x="0" y="0">ata</tspan>
             </text>
-            {/* Note: In SVG transform order matters. Translate first, then rotate around the anchor. 
-                Using the exact values provided. */}
             <text className="st1" transform="translate(34.35 122.88) rotate(90)">
                 <tspan x="0" y="0">tudio</tspan>
             </text>

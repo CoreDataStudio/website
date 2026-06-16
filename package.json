@@ -4,8 +4,9 @@
   "type": "module",
   "homepage": "https://github.com/CoreDataStudio/website",
   "scripts": {
-    "dev": "vite",
+    "dev": "node scripts/use-dev-html.mjs && vite",
     "build": "vite build",
+    "build:pages": "vite build && node scripts/sync-pages.mjs",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
